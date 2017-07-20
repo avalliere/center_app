@@ -1,4 +1,5 @@
 // Express
+// =======
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 8081;
@@ -14,6 +15,7 @@ app.use(express.static('public'));
 
 
 //socket.io
+// ========
 var socket = require('socket.io');
 
 // var io chains together server and socket.io modules:
@@ -29,6 +31,7 @@ io.sockets.on('connection', function(socket){
 });
 
 // Pulse Functions
+// ===============
 function connectSerial() {
   var $ = require('jQuery');
   var SerialPort = require('serialport');
@@ -50,8 +53,12 @@ function connectSerial() {
     // console.log('req emit here...')
 
     //  printing the numbers to the html from the arduino (needs io or it is out of scope)
+    // emit one number
+    // ===============
     // io.sockets.emit('signal', line);
 
+    // emit array of numbers
+    // =====================
     data.push(line);
     console.log(data);
     if (data.length >= 10) {

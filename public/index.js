@@ -6,6 +6,9 @@ socket.on('connect', function(data){
 
 socket.on('signal', function(signal){
   console.log('got the signal', signal);
-  // Not working. Supposed to be inserting data in dom with data from #stream
+  pulse = signal;
+  // Inserting data in dom with data from #stream
   document.getElementById('stream').innerHTML = signal;
 });
+
+var pulse = []
