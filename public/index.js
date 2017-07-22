@@ -9,7 +9,8 @@ socket.on('signal', function(signal){
   pulse = signal;
   // Inserting data in dom with data from #stream
   // document.getElementById('stream').innerHTML = signal;
-  
+
+
 });
 
 var pulse = []

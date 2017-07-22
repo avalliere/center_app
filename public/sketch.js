@@ -6,7 +6,7 @@ function setup() {
 }
 
 function draw() {
-  // background(0, 50, pulse[2] / 3);
+  background(0, 50, pulse[2] / 3);
   // line(30, 20, 85, 75);
   // line(30, 20, pulse[0], pulse[1]);
   // line(100, pulse[0], 100, pulse[1]);

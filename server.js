@@ -42,6 +42,17 @@ function connectSerial() {
     input: port
   });
 
+
+//
+
+  // var PulseSensor = require('pulsesensor');
+  // var pulse = PulseSensor.use(usbPort);
+  // pulse.on('ready', function (){
+  //   pulseSensor.on('beat', function (time) {
+  //     console.log(pulse.BPM);
+  //   });
+  // });
+//
   var data = [];
   function evaluateRegularity(data) {
     // evaluate data and send back number that represents regularity
@@ -60,7 +71,7 @@ function connectSerial() {
     // emit array of numbers
     // =====================
     data.push(line);
-    console.log(data);
+    // console.log(data);
     if (data.length >= 10) {
       var regularity = evaluateRegularity(data);
       io.sockets.emit('signal', regularity);
