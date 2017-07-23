@@ -41,6 +41,8 @@ function connectSerial() {
   var lineReader = createInterface({
     input: port
   });
+  console.log(lineReader);
+
 
 
 //
@@ -60,7 +62,7 @@ function connectSerial() {
   }
 
   lineReader.on('line', function (line) {
-    // console.log(line);
+    console.log(line);
     // console.log('req emit here...')
 
     //  printing the numbers to the html from the arduino (needs io or it is out of scope)

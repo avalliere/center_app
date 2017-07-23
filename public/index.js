@@ -14,3 +14,12 @@ socket.on('signal', function(signal){
 });
 
 var pulse = []
+
+// socket.on('IBI', function(ibi){
+//   console.log('got IBI', ibi);
+//   interval = ibi;
+//   console.log(interval);
+//
+// });
+//
+// var interval = []
