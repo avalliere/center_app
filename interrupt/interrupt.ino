@@ -49,18 +49,20 @@ void setup(){
 void loop() {
 
   // If heart beat is found
-  if (QS == true) {
+//  if (QS == true) {
 
     // Print heart rate
 //    Serial.print("Heart rate: ");
-    Serial.println(BPM);
+    Serial.print(BPM);
+    Serial.print(",");
+    Serial.println(Signal);
 
     // Reset the Quantified Self flag for next time
     QS = false;
-   }
+//   }
 
   // Wait 20 ms
-  delay(20);
+  delay(10);
 }
 // ==============================
 

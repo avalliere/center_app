@@ -41,7 +41,7 @@ function connectSerial() {
   var lineReader = createInterface({
     input: port
   });
-  console.log(lineReader);
+  // console.log(lineReader);
 
 
 
@@ -55,11 +55,7 @@ function connectSerial() {
   //   });
   // });
 //
-  var data = [];
-  function evaluateRegularity(data) {
-    // evaluate data and send back number that represents regularity
-    return data;
-  }
+
 
   lineReader.on('line', function (line) {
     console.log(line);
@@ -74,12 +70,19 @@ function connectSerial() {
     // =====================
     data.push(line);
     // console.log(data);
-    if (data.length >= 10) {
+    // if (data.length >= 10) {
+    if (data.length >= 2) {
       var regularity = evaluateRegularity(data);
       io.sockets.emit('signal', regularity);
       data = [];
     }
   });
+
+  var data = [];
+  function evaluateRegularity(data) {
+    // evaluate data and send back number that represents regularity
+    return data;
+  }
 
   port.write('ROBOT PLEASE RESPOND\n');
 }
