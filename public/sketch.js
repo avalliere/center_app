@@ -17,6 +17,6 @@ function draw() {
   // ellipse(pulse[0], pulse[1], pulse[0] / 2, pulse[1] / 2);
 
   // pulse and BPM
-  background(0, 50, data[0]);
-  ellipse(data[1] / 5, data[3] / 5, data[1] / 8, data[3] / 8);
+  background(0, 50, pulse.bpm);
+  // ellipse(data[1] / 5, data[3] / 5, data[1] / 8, data[3] / 8);
 }

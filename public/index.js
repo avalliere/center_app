@@ -4,16 +4,19 @@ socket.on('connect', function(data){
   socket.emit('ready')
 });
 
-socket.on('signal', function(signal){
-  console.log('got the signal', signal);
-  pulse = signal;
+socket.on('signal', function(pulseObj){
+  console.log('got the signal', pulseObj);
+  // singal = {
+  //  bpm: int,
+  //  pulse: int
+  //}
+
+  pulse = pulseObj;
   // Inserting data in dom with data from #stream
   // document.getElementById('stream').innerHTML = signal;
-
-
 });
 
-var pulse = []
+var pulse = {};
 
 // socket.on('IBI', function(ibi){
 //   console.log('got IBI', ibi);

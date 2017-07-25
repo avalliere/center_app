@@ -58,7 +58,22 @@ function connectSerial() {
 
 
   lineReader.on('line', function (line) {
-    console.log(line);
+    // split into two numbers by ,
+    var l = line.split(',')
+    // ["0", "120"]
+    var obj = {}
+    obj.bpm = parseInt(l[0])
+    obj.pulse = parseInt(l[1])
+
+    // obj = {
+    //   bpm: "0"
+    //   pulse: "120"
+    // }
+    // convert these into integers
+    console.log(obj);
+    io.sockets.emit('signal', obj);
+
+
     // console.log('req emit here...')
 
     //  printing the numbers to the html from the arduino (needs io or it is out of scope)
@@ -68,21 +83,20 @@ function connectSerial() {
 
     // emit array of numbers
     // =====================
-    data.push(line);
-    // console.log(data);
-    // if (data.length >= 10) {
-    if (data.length >= 2) {
-      var regularity = evaluateRegularity(data);
-      io.sockets.emit('signal', regularity);
-      data = [];
-    }
+  //   data.push(line);
+  //   // console.log(data);
+  //   // if (data.length >= 10) {
+  //   if (data.length >= 2) {
+  //     var regularity = evaluateRegularity(data);
+  //     io.sockets.emit('signal', regularity);
+  //     data = [];
+  //   }
   });
-
-  var data = [];
-  function evaluateRegularity(data) {
-    // evaluate data and send back number that represents regularity
-    return data;
-  }
+  //
+  // var data = [];
+  // function evaluateRegularity(data) {
+  //   // evaluate data and send back number that represents regularity
+  //   return data;
 
   port.write('ROBOT PLEASE RESPOND\n');
 }
