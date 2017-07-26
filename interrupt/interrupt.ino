@@ -55,7 +55,9 @@ void loop() {
 //    Serial.print("Heart rate: ");
     Serial.print(BPM);
     Serial.print(",");
-    Serial.println(Signal);
+    Serial.print(Signal);
+    Serial.print(",");
+    Serial.println(IBI);
 
     // Reset the Quantified Self flag for next time
     QS = false;
