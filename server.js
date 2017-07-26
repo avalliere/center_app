@@ -57,6 +57,7 @@ function connectSerial() {
 //
   var ibiArray = []
   var variance;
+  var varianceArray = []
 
   lineReader.on('line', function (line) {
     // split into two numbers by ,
@@ -66,6 +67,7 @@ function connectSerial() {
     obj.bpm = parseInt(l[0])
     obj.pulse = parseInt(l[1])
     obj.ibi = parseInt(l[2])
+    obj.previousVariance = varianceArray[0];
     obj.variance = variance;
 
     // HRV
@@ -78,6 +80,10 @@ function connectSerial() {
         // console.log(ibiArray)
         variance = calculateVariance(ibiArray);
         obj.variance = variance;
+        varianceArray.push(obj.variance);
+          if (varianceArray.length > 2) {
+            varianceArray.shift()
+          }
       }
     }
 

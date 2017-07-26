@@ -20,7 +20,7 @@
 //   // pulse and BPM
 //   // background(0, pulse.bpm, 250);
 //
-//
+//   // ui gradient "purple bliss"
 //   var high = color(54, 0, 51);
 //   var midHigh = color(39, 45, 83);
 //   var midLow = color(25, 90, 115);
@@ -50,7 +50,7 @@
 var xspacing = 16;    // Distance between each horizontal location
 var w;                // Width of entire wave
 var theta = 0.0;      // Start angle at 0
-var amplitude = Math.floor((Math.random() * 200) + 180); // Height of wave
+// var amplitude = Math.floor((Math.random() * 200) + 180); // Height of wave
 var period = 70.0;   // How many pixels before the wave repeats
 var dx;               // Value for incrementing x
 var yvalues;  // Using an array to store height values for the wave
@@ -81,7 +81,8 @@ function calcWave() {
   var x = theta;
   for (var i = 0; i < yvalues.length; i++) {
     yvalues[i] = sin(x)*amplitude;
-    x+=dx;
+    // yvalues[i] = (sin(x)*amplitude) * easing;
+    x+=dx*easing;
   }
 }
 
