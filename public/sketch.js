@@ -1,6 +1,6 @@
 
 function setup() {
-  var myCanvas = createCanvas(600, 400);
+  var myCanvas = createCanvas(windowWidth, windowHeight);
   myCanvas.parent('display');
   background(200, 200, 200);
 
@@ -37,6 +37,10 @@ function draw() {
     background(high)
   };
 
-  fill(pulse.bpm * 2);
-  ellipse(pulse.pulse / 5, pulse.pulse / 5, pulse.pulse / 8, pulse.pulse / 8);
+  fill(255, 0, pulse.bpm * 2, 50);
+  noStroke();
+  ellipse(80, 80, pulse.pulse / 8, pulse.pulse / 8);
+  ellipse(100, 25, pulse.pulse / 10, pulse.pulse / 10);
+  ellipse(30, 300, pulse.pulse / 8, pulse.pulse / 8);
+  ellipse(250, 80, pulse.pulse / 4, pulse.pulse / 4);
 }
