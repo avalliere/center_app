@@ -70,7 +70,7 @@ function setup() {
 }
 
 function draw() {
-  background(0);
+  background(39, 39, 39);
   target_amplitude = pulse.variance;
   if (isNaN(current_amplitude)) {
     current_amplitude = target_amplitude;
@@ -103,7 +103,13 @@ function calcWave() {
 
 function renderWave() {
   noStroke();
-  fill(255);
+  if (yvalues[0] < 10) {
+    fill(105, 116, 124);
+  } else {
+    fill(203, 255, 77);
+  };
+  // fill(203, 255, 77));
+  // fill(255);
   // A simple way to draw the wave with an ellipse at each location
   for (var x = 0; x < yvalues.length; x++) {
     ellipse(x*xspacing, height/2+yvalues[x], 16, 16);
