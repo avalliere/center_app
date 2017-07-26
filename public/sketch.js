@@ -50,10 +50,14 @@
 var xspacing = 16;    // Distance between each horizontal location
 var w;                // Width of entire wave
 var theta = 0.0;      // Start angle at 0
-// var amplitude = Math.floor((Math.random() * 200) + 180); // Height of wave
+var amplitude = Math.floor((Math.random() * 200) + 180); // Height of wave
+var target_amplitude = 0;
+var current_amplitude = 0;
 var period = 70.0;   // How many pixels before the wave repeats
 var dx;               // Value for incrementing x
 var yvalues;  // Using an array to store height values for the wave
+var previous = pulse.previousVariance;
+var MAX_DELTA = 1;
 
 function setup() {
   // createCanvas(710, 400);
@@ -62,11 +66,20 @@ function setup() {
   w = width+16;
   dx = (TWO_PI / period) * xspacing;
   yvalues = new Array(floor(w/xspacing));
+  console.log(yvalues);
 }
 
 function draw() {
   background(0);
-  amplitude = pulse.variance;
+  target_amplitude = pulse.variance;
+  if (isNaN(current_amplitude)) {
+    current_amplitude = target_amplitude;
+  } else if (target_amplitude < current_amplitude) {
+    var delta = Math.min(MAX_DELTA, current_amplitude - target_amplitude);
+    current_amplitude -= delta;
+  } else {
+    current_amplitude += Math.min(MAX_DELTA, target_amplitude - current_amplitude);
+  }
   period = pulse.bpm;
   calcWave();
   renderWave();
@@ -80,9 +93,11 @@ function calcWave() {
   // For every x value, calculate a y value with sine function
   var x = theta;
   for (var i = 0; i < yvalues.length; i++) {
-    yvalues[i] = sin(x)*amplitude;
-    // yvalues[i] = (sin(x)*amplitude) * easing;
-    x+=dx*easing;
+    // console.log('BEFORE', yvalues);
+    // yvalues[i] = lerp((sin(x)*previous), (sin(x)*amplitude), 0.2);
+    yvalues[i] = sin(x)*current_amplitude;
+    // console.log('AFTER', yvalues);
+    x+=dx;
   }
 }
 
