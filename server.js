@@ -55,7 +55,8 @@ function connectSerial() {
   //   });
   // });
 //
-
+  var ibiArray = []
+  var variance;
 
   lineReader.on('line', function (line) {
     // split into two numbers by ,
@@ -64,6 +65,48 @@ function connectSerial() {
     var obj = {}
     obj.bpm = parseInt(l[0])
     obj.pulse = parseInt(l[1])
+    obj.ibi = parseInt(l[2])
+    obj.variance = variance;
+
+    // HRV
+    // ibiArray = [900, 992, 1000]
+    if (obj.ibi !== ibiArray[ibiArray.length - 1] && (typeof obj.ibi === 'number') && isNaN(obj.ibi) !== true) {
+      ibiArray.push(obj.ibi)
+      // console.log(ibiArray)
+      if (ibiArray.length > 10) {
+        ibiArray.shift()
+        // console.log(ibiArray)
+        variance = calculateVariance(ibiArray);
+        obj.variance = variance;
+      }
+    }
+
+    function calculateVariance(nums) {
+      var diff = 0;
+      // process var
+      var total = 0;
+      var avg = 0;
+      var allDiffs= [];
+
+      for(var i = 0; i < nums.length; i++) {
+        total += nums[i];
+      }
+
+      avg = total / nums.length;
+
+      for(var i = 0; i < nums.length; i++) {
+        var diff = Math.abs(nums[i] - avg);
+        allDiffs.push(diff);
+      }
+
+      var diffTotal = 0;
+      for(var i = 0; i < allDiffs.length; i++) {
+        diffTotal += allDiffs[i];
+      }
+
+      var variance = diffTotal / allDiffs.length;
+      return variance;
+    }
 
     // obj = {
     //   bpm: "0"

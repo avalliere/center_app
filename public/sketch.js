@@ -37,7 +37,7 @@ function draw() {
     background(high)
   };
 
-  fill(255, 0, pulse.bpm * 2, 50);
+  fill(50, 0, pulse.bpm * 2, 50);
   noStroke();
   ellipse(80, 80, pulse.pulse / 8, pulse.pulse / 8);
   ellipse(100, 25, pulse.pulse / 10, pulse.pulse / 10);
