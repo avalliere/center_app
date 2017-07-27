@@ -103,15 +103,32 @@ function calcWave() {
 
 function renderWave() {
   noStroke();
-  if (yvalues[0] < 10) {
-    fill(105, 116, 124);
-  } else {
-    fill(203, 255, 77);
-  };
+  // if (pulse.pulse > 512) {
+  //   fill(105, 116, 124);
+  // } else {
+  //   fill(203, 255, 77);
+  // };
   // fill(203, 255, 77));
   // fill(255);
   // A simple way to draw the wave with an ellipse at each location
   for (var x = 0; x < yvalues.length; x++) {
+    if (x % 2 === 0) {
+      fill(105, 116, 124);
+    } else if (x % 3 === 0){
+      fill(203, 255, 77);
+    } else {
+      fill(107, 170, 117);
+    };
+
+    // if (x % 2 === 0) {
+    //   fill(189, 173, 234);
+    // } else if (x % 2 !== 0){
+    //   fill(190, 162, 194);
+    // } else if (x % 3 === 0){
+    //   fill(67, 129, 193);
+    // } else {
+    //   fill(163, 120, 113);
+    // };
     ellipse(x*xspacing, height/2+yvalues[x], 16, 16);
   }
 }
