@@ -1,14 +1,23 @@
-# socket-biofeedback
+# Center is a biofeedback tool for meditation.
+
+Hook it up to an Arduino outfitted with the Pulse Sensor and let the mesmerizing visualization of your heart rate calm you. Keeping the waves of your heart rate steady will center them in the screen as a shallow undulation. An unsteady, anxious heart rate will send disjointed waves dashing across the screen. As you use the app, you will discover which meditation techniques are serving you well and which aren't calming you as effectively as you may have assumed.
+
+This app was developed in one month as my Capstone project for Ada Developers Academy.
 
 ## Setup/installation
 
-## Third-party dependencies/Configuration
+### Third-party dependencies/Configuration
+
+Frameworks, libraries and node packages required 
+Serialport, socket.io, p5.js, express
 
 ## Parts list & Assembly
 
 ### Gather Parts & Software
 
-This app was made with [Arduino Uno R3](https://www.adafruit.com/product/50) and [Pulse Sensor](https://pulsesensor.com/). [Arduino IDE](https://www.arduino.cc/en/Main/Software) can be used to upload interrupt.ino to the Arduino board. Though not necessary, a breadboard and LED are fun to use to get started with the Pulse Sensor and familiarize yourself with Arduino basics. I used [this kit](https://www.adafruit.com/product/193) for this project.
+This app was made with [Arduino Uno R3](https://www.adafruit.com/product/50) and [Pulse Sensor](https://pulsesensor.com/).
+
+[Arduino IDE](https://www.arduino.cc/en/Main/Software) can be used to upload interrupt.ino to the Arduino board. Though not necessary, a breadboard and LED are fun to use to get started with the Pulse Sensor and familiarize yourself with Arduino basics. I used [this kit](https://www.adafruit.com/product/193) for this project.
 
 ### Assembly
 
