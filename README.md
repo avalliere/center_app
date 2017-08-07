@@ -5,14 +5,14 @@ It is a Node.js program which runs on Pulse Sensor and Arduino. It creates a mes
 
 Keeping the waves of your heart rate steady will center them in the screen as a shallow undulation. An unsteady, anxious heart rate will send disjointed waves dashing across the screen. As you use the app, you will discover which meditation techniques are serving you well and which aren't as calming as you may have assumed.
 
-This app was developed in one month as my Capstone project for Ada Developers Academy.
+This app was developed in one month as my Capstone project for [Ada Developers Academy](https://adadevelopersacademy.org).
 
 ## Setup/installation
 
 ### Third-party dependencies/Configuration
 
-Frameworks, libraries and node packages required 
-Serialport, socket.io, p5.js, express
+Frameworks, libraries and node packages required: 
+Serialport, socket.io, p5.js, Express Server
 
 ## Parts list & Assembly
 
@@ -28,4 +28,6 @@ Some quick setup of the Pulse Sensor is required to get started. Place an includ
 
 A great starter video is available from PulseSensor.com and can be watched from the corresponding GitHub repo [here](https://github.com/WorldFamousElectronics/PulseSensorStarterProject).
 
-[Project Trello board](https://trello.com/b/gFBr9Doy/capstoneA link to your Product Plan)
+[Project Trello board](https://trello.com/b/gFBr9Doy/capstone)
+
+A link to your Product Plan
