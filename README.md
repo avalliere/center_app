@@ -1,6 +1,7 @@
 # Center is a biofeedback tool for meditation.
+It is a Node.js program which runs on Pulse Sensor and Arduino. It creates a mesmerizing visualization of your heart rate which is meant not only to calm you, but to help you learn how to calm yourself more effectively. 
 
-Hook it up to an Arduino outfitted with the Pulse Sensor and let the mesmerizing visualization of your heart rate calm you. Keeping the waves of your heart rate steady will center them in the screen as a shallow undulation. An unsteady, anxious heart rate will send disjointed waves dashing across the screen. As you use the app, you will discover which meditation techniques are serving you well and which aren't calming you as effectively as you may have assumed.
+Keeping the waves of your heart rate steady will center them in the screen as a shallow undulation. An unsteady, anxious heart rate will send disjointed waves dashing across the screen. As you use the app, you will discover which meditation techniques are serving you well and which aren't as calming as you may have assumed.
 
 This app was developed in one month as my Capstone project for Ada Developers Academy.
 
