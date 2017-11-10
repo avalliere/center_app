@@ -21,7 +21,7 @@ var socket = require('socket.io');
 // var io chains together server and socket.io modules:
 var io = socket(server);
 
-// This is how to set up a listener for socket.io:
+// Set up a listener for socket.io:
 io.sockets.on('connection', function(socket){
   console.log('new connection from:' + socket.id);
   socket.on('ready', function(){
@@ -41,20 +41,7 @@ function connectSerial() {
   var lineReader = createInterface({
     input: port
   });
-  // console.log(lineReader);
 
-
-
-//
-
-  // var PulseSensor = require('pulsesensor');
-  // var pulse = PulseSensor.use(usbPort);
-  // pulse.on('ready', function (){
-  //   pulseSensor.on('beat', function (time) {
-  //     console.log(pulse.BPM);
-  //   });
-  // });
-//
   var ibiArray = []
   var variance;
   var varianceArray = []
@@ -74,10 +61,8 @@ function connectSerial() {
     // ibiArray = [900, 992, 1000]
     if (obj.ibi !== ibiArray[ibiArray.length - 1] && (typeof obj.ibi === 'number') && isNaN(obj.ibi) !== true) {
       ibiArray.push(obj.ibi)
-      // console.log(ibiArray)
       if (ibiArray.length > 10) {
         ibiArray.shift()
-        // console.log(ibiArray)
         variance = calculateVariance(ibiArray);
         obj.variance = variance;
         varianceArray.push(obj.variance);
@@ -89,7 +74,6 @@ function connectSerial() {
 
     function calculateVariance(nums) {
       var diff = 0;
-      // process var
       var total = 0;
       var avg = 0;
       var allDiffs= [];
@@ -114,38 +98,11 @@ function connectSerial() {
       return variance;
     }
 
-    // obj = {
-    //   bpm: "0"
-    //   pulse: "120"
-    // }
-    // convert these into integers
     console.log(obj);
     io.sockets.emit('signal', obj);
 
-
-    // console.log('req emit here...')
-
-    //  printing the numbers to the html from the arduino (needs io or it is out of scope)
-    // emit one number
-    // ===============
-    // io.sockets.emit('signal', line);
-
-    // emit array of numbers
-    // =====================
-  //   data.push(line);
-  //   // console.log(data);
-  //   // if (data.length >= 10) {
-  //   if (data.length >= 2) {
-  //     var regularity = evaluateRegularity(data);
-  //     io.sockets.emit('signal', regularity);
-  //     data = [];
-  //   }
   });
-  //
-  // var data = [];
-  // function evaluateRegularity(data) {
-  //   // evaluate data and send back number that represents regularity
-  //   return data;
+
 
   port.write('ROBOT PLEASE RESPOND\n');
 }
